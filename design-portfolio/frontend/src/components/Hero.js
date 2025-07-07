@@ -52,7 +52,7 @@ const Hero = ({ portfolioData }) => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-6"
           >
-            {portfolioData?.name || 'Alex Thompson'}
+            {portfolioData?.name || 'Marco Mendoza'}
           </motion.h1>
 
           {/* Title */}

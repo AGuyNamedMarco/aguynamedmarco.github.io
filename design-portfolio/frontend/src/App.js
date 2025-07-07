@@ -25,10 +25,10 @@ function App() {
         console.error('Error fetching portfolio data:', error);
         // Set default data if API fails
         setPortfolioData({
-          name: "Alex Thompson",
+          name: "Marco Mendoza",
           title: "Design Engineer",
           bio: "Passionate design engineer specializing in creating beautiful, functional, and user-centered digital experiences.",
-          email: "alex@example.com",
+          email: "marco@example.com",
           phone: "+1 (555) 123-4567",
           location: "San Francisco, CA",
           skills: ["UI/UX Design", "React", "TypeScript", "Figma", "Adobe Creative Suite"],

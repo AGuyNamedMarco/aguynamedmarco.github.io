@@ -80,10 +80,10 @@ app.get('/api/portfolio', async (req, res) => {
     // If no portfolio exists, create default data
     if (!portfolio) {
       portfolio = new Portfolio({
-        name: "Alex Thompson",
+        name: "Marco Mendoza",
         title: "Design Engineer",
         bio: "Passionate design engineer specializing in creating beautiful, functional, and user-centered digital experiences. I bridge the gap between design and development, bringing creative visions to life through code.",
-        email: "alex@example.com",
+        email: "marco@example.com",
         phone: "+1 (555) 123-4567",
         location: "San Francisco, CA",
         skills: [
@@ -146,11 +146,11 @@ app.get('/api/portfolio', async (req, res) => {
           }
         ],
         social: {
-          linkedin: "https://linkedin.com/in/alexthompson",
-          github: "https://github.com/alexthompson",
-          dribbble: "https://dribbble.com/alexthompson",
-          behance: "https://behance.net/alexthompson",
-          website: "https://alexthompson.design"
+          linkedin: "https://linkedin.com/in/marcomendoza",
+          github: "https://github.com/marcomendoza",
+          dribbble: "https://dribbble.com/marcomendoza",
+          behance: "https://behance.net/marcomendoza",
+          website: "https://marcomendoza.design"
         }
       });
       await portfolio.save();

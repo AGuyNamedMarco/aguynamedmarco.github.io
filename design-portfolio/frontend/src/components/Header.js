@@ -50,7 +50,7 @@ const Header = ({ portfolioData }) => {
             className="text-2xl font-display font-bold text-white cursor-pointer"
             onClick={() => scrollToSection('#home')}
           >
-            {portfolioData?.name?.split(' ').map(name => name[0]).join('') || 'AT'}
+            {portfolioData?.name?.split(' ').map(name => name[0]).join('') || 'MM'}
           </motion.div>
 
           {/* Desktop Navigation */}

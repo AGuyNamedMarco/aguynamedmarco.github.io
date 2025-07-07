@@ -42,8 +42,8 @@ const Contact = ({ portfolioData }) => {
     {
       icon: FiMail,
       label: 'Email',
-      value: portfolioData?.email || 'alex@example.com',
-      href: `mailto:${portfolioData?.email || 'alex@example.com'}`
+      value: portfolioData?.email || 'marco@example.com',
+      href: `mailto:${portfolioData?.email || 'marco@example.com'}`
     },
     {
       icon: FiPhone,

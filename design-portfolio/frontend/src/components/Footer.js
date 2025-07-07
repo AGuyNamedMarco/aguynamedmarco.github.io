@@ -23,7 +23,7 @@ const Footer = ({ portfolioData }) => {
     },
     {
       icon: FiMail,
-      href: `mailto:${portfolioData?.email || 'alex@example.com'}`,
+      href: `mailto:${portfolioData?.email || 'marco@example.com'}`,
       label: 'Email'
     }
   ];
@@ -43,7 +43,7 @@ const Footer = ({ portfolioData }) => {
               onClick={scrollToTop}
               className="text-2xl font-display font-bold text-white cursor-pointer mb-2"
             >
-              {portfolioData?.name || 'Alex Thompson'}
+              {portfolioData?.name || 'Marco Mendoza'}
             </motion.h3>
             <p className="text-white/60">
               {portfolioData?.title || 'Design Engineer'}
@@ -73,7 +73,7 @@ const Footer = ({ portfolioData }) => {
             <p className="text-white/60 text-sm flex items-center justify-center md:justify-end">
               © {currentYear} Made with{' '}
               <FiHeart className="text-red-400 mx-1" size={14} />
-              by {portfolioData?.name?.split(' ')[0] || 'Alex'}
+              by {portfolioData?.name?.split(' ')[0] || 'Marco'}
             </p>
           </div>
         </div>
