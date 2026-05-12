@@ -139,6 +139,7 @@ Each section is a separate React component that can be:
 - Modified by editing the respective component files
 - Hidden by removing the import and component tag
 
+
 ## 🚀 Deployment
 
 ### Backend Deployment (Railway/Heroku)
