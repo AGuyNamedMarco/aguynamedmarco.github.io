@@ -1,0 +1,15 @@
+:root {
+  --type-ratio: 1.2;
+  --step--2: calc(1rem / (var(--type-ratio) * var(--type-ratio)));
+  --step--1: calc(1rem / var(--type-ratio));
+  --step-0: 1rem;
+  --step-1: calc(var(--step-0) * var(--type-ratio));
+  --step-2: calc(var(--step-1) * var(--type-ratio));
+  --step-3: calc(var(--step-2) * var(--type-ratio));
+  --step-4: calc(var(--step-3) * var(--type-ratio));
+  --step-5: calc(var(--step-4) * var(--type-ratio));
+  --step-6: calc(var(--step-5) * var(--type-ratio));
+  --step-7: calc(var(--step-6) * var(--type-ratio));
+  --step-8: calc(var(--step-7) * var(--type-ratio));
+  --step-9: calc(var(--step-8) * var(--type-ratio));
+}

@@ -1,0 +1,22 @@
+---
+import "../card.css";
+import type { CardProps } from "../types";
+
+const {
+  eyebrow = "",
+  title,
+  body,
+  href = "#",
+  linkLabel = "Read more",
+  tone = "default"
+} = Astro.props as CardProps;
+---
+
+<article class="ui-card" data-tone={tone}>
+  <a class="ui-card__container" href={href}>
+    {eyebrow && <p class="ui-card__eyebrow">{eyebrow}</p>}
+    <h3 class="ui-card__title">{title}</h3>
+    <p class="ui-card__body">{body}</p>
+    <p class="ui-card__link">{linkLabel}</p>
+  </a>
+</article>

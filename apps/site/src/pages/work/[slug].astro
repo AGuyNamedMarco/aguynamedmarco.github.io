@@ -1,0 +1,146 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { caseStudies } from "../../data/projects";
+
+export function getStaticPaths() {
+  return caseStudies.map((study) => ({
+    params: { slug: study.slug },
+    props: { study }
+  }));
+}
+
+const { study } = Astro.props;
+---
+<BaseLayout
+  title={`${study.title} | Case Study`}
+  description={study.summary}
+  currentPath="/work"
+>
+  <article class="card" aria-labelledby="case-title">
+    <p class="meta">{study.role} - {study.timeline}</p>
+    <h1 id="case-title">{study.title}</h1>
+    <p>{study.summary}</p>
+    {study.client && <p><strong>Client:</strong> {study.client}</p>}
+    {study.project && <p><strong>Project:</strong> {study.project}</p>}
+    {study.problem && <p><strong>Problem:</strong> {study.problem}</p>}
+    {study.constraint && <p><strong>Constraint:</strong> {study.constraint}</p>}
+
+    <h2>Challenge</h2>
+    <p>{study.challenge}</p>
+
+    <h2>Approach</h2>
+    <ol>
+      {study.approach.map((step: string) => <li>{step}</li>)}
+    </ol>
+
+    <h2>Outcome</h2>
+    <p>{study.outcome}</p>
+
+    <h2>Impact Metrics</h2>
+    <ul>
+      {study.metrics.map((item: string) => <li>{item}</li>)}
+    </ul>
+
+    <h2>Tools</h2>
+    <p>{study.tools.join(", ")}</p>
+
+    {
+      study.roleScope && study.roleScope.length > 0 && (
+        <>
+          <h2>My Role</h2>
+          <ul>
+            {study.roleScope.map((item: string) => <li>{item}</li>)}
+          </ul>
+        </>
+      )
+    }
+
+    {
+      study.collaboration && study.collaboration.length > 0 && (
+        <>
+          <h2>Cross-Functional Collaboration</h2>
+          <ul>
+            {study.collaboration.map((item: string) => <li>{item}</li>)}
+          </ul>
+        </>
+      )
+    }
+
+    {
+      study.directExecution && study.directExecution.length > 0 && (
+        <>
+          <h2>Execution</h2>
+          <ul>
+            {study.directExecution.map((item: string) => <li>{item}</li>)}
+          </ul>
+        </>
+      )
+    }
+
+    {
+      study.strategicInfluence && study.strategicInfluence.length > 0 && (
+        <>
+          <h2>Strategic Influence</h2>
+          <ul>
+            {study.strategicInfluence.map((item: string) => <li>{item}</li>)}
+          </ul>
+        </>
+      )
+    }
+
+    {
+      study.designDecisions && study.designDecisions.length > 0 && (
+        <>
+          <h2>Design Decisions</h2>
+          {study.designDecisions.map((decision) => (
+            <>
+              <h3>{decision.title}</h3>
+              <p><strong>Decision:</strong> {decision.decision}</p>
+              <ul>
+                {decision.details.map((item: string) => <li>{item}</li>)}
+              </ul>
+              <p><strong>Tradeoff:</strong> {decision.tradeoff}</p>
+            </>
+          ))}
+        </>
+      )
+    }
+
+    {
+      study.accessibility && study.accessibility.length > 0 && (
+        <>
+          <h2>Accessibility and Compliance</h2>
+          <ul>
+            {study.accessibility.map((item: string) => <li>{item}</li>)}
+          </ul>
+        </>
+      )
+    }
+
+    {
+      study.impact && study.impact.length > 0 && (
+        <>
+          <h2>Impact</h2>
+          <ul>
+            {study.impact.map((item: string) => <li>{item}</li>)}
+          </ul>
+        </>
+      )
+    }
+
+    {
+      study.refinements && study.refinements.length > 0 && (
+        <>
+          <h2>What I'd Refine Today</h2>
+          <ul>
+            {study.refinements.map((item: string) => <li>{item}</li>)}
+          </ul>
+        </>
+      )
+    }
+
+    <p>
+      <a href="/work">Back to all case studies</a>
+    </p>
+  </article>
+</BaseLayout>

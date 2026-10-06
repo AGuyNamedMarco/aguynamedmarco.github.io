@@ -1,0 +1,7 @@
+---
+import "../badge.css";
+import type { BadgeProps } from "../types";
+
+const { label, tone = "neutral" } = Astro.props as BadgeProps;
+---
+<span class="ui-badge" data-tone={tone}>{label}</span>

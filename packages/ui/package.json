@@ -1,0 +1,35 @@
+{
+  "name": "@portfolio/ui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./components/Badge.astro": "./src/components/Badge.astro",
+    "./components/Button.astro": "./src/components/Button.astro",
+    "./components/Card.astro": "./src/components/Card.astro",
+    "./components/FeatureCard.astro": "./src/components/FeatureCard.astro",
+    "./components/FeatureCardRail.astro": "./src/components/FeatureCardRail.astro",
+    "./components/Toolbar.astro": "./src/components/Toolbar.astro",
+    "./styles/badge.css": "./src/badge.css",
+    "./styles/button.css": "./src/button.css",
+    "./styles/card.css": "./src/card.css",
+    "./styles/toolbar.css": "./src/toolbar.css",
+    "./styles/feature-card.css": "./src/feature-card.css",
+    "./styles/feature-card-rail.css": "./src/feature-card-rail.css"
+  },
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@portfolio/tokens": "file:../tokens"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^10.2.8",
+    "@storybook/addon-docs": "^10.2.8",
+    "@storybook/builder-vite": "^10.2.8",
+    "storybook": "^10.2.8",
+    "storybook-astro": "^0.1.0"
+  }
+}

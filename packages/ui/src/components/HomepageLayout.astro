@@ -1,0 +1,46 @@
+---
+import "../../../../apps/site/src/styles/global.css";
+import Button from "./Button.astro";
+import Card from "./Card.astro";
+---
+
+<main class="container" style="padding: var(--space-6) 0 calc(var(--space-6) + var(--space-3));">
+  <section class="hero" aria-labelledby="home-title">
+    <p class="meta">Product Designer focused on high-impact digital experiences</p>
+    <h1 id="home-title">Let's build <br />something great<br />together.</h1>
+    <p>
+      This example story mirrors homepage composition using real Astro components and shared design
+      tokens.
+    </p>
+    <div class="button-row">
+      <Button href="#" variant="primary" label="View Case Studies" />
+      <Button href="#" variant="secondary" label="Contact Me" />
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="featured-work">
+    <h2 id="featured-work">Featured Case Studies</h2>
+    <div class="layout-grid">
+      <div class="grid-span-6">
+        <Card
+          eyebrow="Case Study"
+          title="USAspending.gov Search"
+          body="Designed a scalable search experience for analyzing federal spending data."
+          href="#"
+          linkLabel="Read case study"
+          tone="featured"
+        />
+      </div>
+      <div class="grid-span-6">
+        <Card
+          eyebrow="Case Study"
+          title="Provider Onboarding"
+          body="Reduced setup friction for multi-role healthcare admin and practitioner flows."
+          href="#"
+          linkLabel="Read case study"
+          tone="default"
+        />
+      </div>
+    </div>
+  </section>
+</main>

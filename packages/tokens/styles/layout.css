@@ -1,0 +1,17 @@
+:root {
+  --space-1: 0.5rem;
+  --space-2: 0.75rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+  --space-7: 4rem;
+  --space-8: 5rem;
+  --space-9: 6rem;
+  --logo-bottom-offset: calc(var(--space-6) + var(--space-1));
+  --toolbar-mobile-height: calc(var(--space-6) + var(--space-3));
+  --toolbar-mobile-offset: var(--toolbar-mobile-height);
+  --grid-columns: 12;
+  --grid-gap: var(--space-3);
+  --radius: 16px;
+}

@@ -1,0 +1,10 @@
+---
+import Toolbar from "@portfolio/ui/components/Toolbar.astro";
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+---
+<Toolbar currentPath={currentPath} />
