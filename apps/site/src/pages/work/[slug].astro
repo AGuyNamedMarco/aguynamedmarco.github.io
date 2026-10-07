@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { caseStudies } from "../../data/projects";
+import USAspendingSearchCaseStudy from "../../components/USAspendingSearchCaseStudy.astro";
 
 export function getStaticPaths() {
   return caseStudies.map((study) => ({
@@ -16,7 +17,10 @@ const { study } = Astro.props;
   description={study.summary}
   currentPath="/work"
 >
-  <article class="card" aria-labelledby="case-title">
+  {study.slug === "usaspending-search" ? (
+    <USAspendingSearchCaseStudy />
+  ) : (
+    <article class="card" aria-labelledby="case-title">
     <p class="meta">{study.role} - {study.timeline}</p>
     <h1 id="case-title">{study.title}</h1>
     <p>{study.summary}</p>
@@ -143,4 +147,6 @@ const { study } = Astro.props;
       <a href="/work">Back to all case studies</a>
     </p>
   </article>
+
+  )}
 </BaseLayout>
