@@ -1,0 +1,23 @@
+.ui-button {
+  background-color: var(--surface-alt);
+  font: sans-serif;
+  font-size: var(--step-0);
+  font-weight: 500;
+  border-radius: 10px;
+  padding: 0.65rem 1.1rem;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.ui-button[data-variant="primary"] {
+  color: #000;
+}
+
+.ui-button[data-variant="secondary"] {
+    color: var(--text-muted);
+}
+
+.ui-button:focus-visible {
+  outline-offset: 2px;
+}

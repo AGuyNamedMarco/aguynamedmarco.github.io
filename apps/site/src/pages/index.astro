@@ -1,0 +1,434 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { projectHighlights } from "../data/projects";
+import Badge from "@portfolio/ui/components/Badge.astro";
+import Button from "@portfolio/ui/components/Button.astro";
+import Card from "@portfolio/ui/components/Card.astro";
+import FeatureCardRail from "@portfolio/ui/components/FeatureCardRail.astro";
+
+const exactHeadline = "Let's build something great together.";
+
+const heroStudies = [
+  {
+    slug: "editorial",
+    label: "01 Editorial Split",
+    eyebrow: "Bold typography with a confident split layout",
+    title: exactHeadline,
+    body:
+      "A classic portfolio-first hero: oversized messaging, strong contrast, and a right-hand panel that feels like a project snapshot.",
+    cta: "Start a project",
+    secondary: "See case studies",
+    details: ["Strategy", "UX systems", "Launch support"]
+  },
+  {
+    slug: "blueprint",
+    label: "02 Blueprint Grid",
+    eyebrow: "Structured, system-minded, and collaborative",
+    title: "Great products start with shared direction.",
+    body:
+      "This concept leans into grids, planning, and cross-functional momentum. It is useful if you want the site to feel rigorous and product-led.",
+    cta: "Book a design review",
+    secondary: "Explore process",
+    details: ["Research", "Roadmaps", "Design QA"]
+  },
+  {
+    slug: "spotlight",
+    label: "03 Spotlight Stage",
+    eyebrow: "High-contrast presentation with keynote energy",
+    title: "Bring the right people into the room, then build.",
+    body:
+      "A more dramatic direction for a personal brand. The dark stage treatment makes the message feel premium and presentation-ready.",
+    cta: "Plan the launch",
+    secondary: "View selected work",
+    details: ["Vision", "Alignment", "Execution"]
+  },
+  {
+    slug: "glass",
+    label: "04 Glass Orbit",
+    eyebrow: "Soft gradients and floating collaboration cues",
+    title: "From first sketch to shipped experience.",
+    body:
+      "This version softens the portfolio with translucent layers, subtle depth, and a more contemporary product-marketing feel.",
+    cta: "Design with me",
+    secondary: "Read outcomes",
+    details: ["Discovery", "Wireframes", "Iteration"]
+  },
+  {
+    slug: "timeline",
+    label: "05 Timeline Flow",
+    eyebrow: "Narrative-driven layout for process storytelling",
+    title: "Build trust in the process before the pixels.",
+    body:
+      "A hero that previews how you work. It frames collaboration as a sequence of clear steps, which can be great for consulting and freelance positioning.",
+    cta: "See the workflow",
+    secondary: "Talk through scope",
+    details: ["Listen", "Shape", "Ship"]
+  },
+  {
+    slug: "statement",
+    label: "06 Statement Card",
+    eyebrow: "Minimal, direct, and founder-friendly",
+    title: "Clarity, craft, and momentum in one place.",
+    body:
+      "A quieter concept with a lot of confidence. It gives the headline room to breathe and makes your call to action the clear next step.",
+    cta: "Let's talk",
+    secondary: "Browse portfolio",
+    details: ["Positioning", "Product thinking", "UI craft"]
+  },
+  {
+    slug: "mosaic",
+    label: "07 Mosaic Gallery",
+    eyebrow: "A collage of proof points and specialties",
+    title: "Every strong product needs story, system, and signal.",
+    body:
+      "This design uses a modular mosaic to hint at case studies, highlights, and specialties all at once. It feels energetic without becoming noisy.",
+    cta: "See featured work",
+    secondary: "Review capabilities",
+    details: ["Health", "Mobility", "Nonprofit"]
+  },
+  {
+    slug: "dashboard",
+    label: "08 Impact Dashboard",
+    eyebrow: "Metrics-forward and outcome-oriented",
+    title: "Design that moves teams and numbers forward.",
+    body:
+      "A stronger business case for your work. This hero is aimed at hiring managers or clients who want confidence in measurable impact.",
+    cta: "View results",
+    secondary: "Read the case studies",
+    details: ["+28% conversion", "3 launches", "2x adoption"]
+  },
+  {
+    slug: "ribbon",
+    label: "09 Motion Ribbon",
+    eyebrow: "Expressive stripes, badges, and campaign energy",
+    title: "Let's turn ambition into a product people remember.",
+    body:
+      "This concept pushes further into branding. It is useful if you want the homepage to feel lively, expressive, and a little surprising.",
+    cta: "Build the next release",
+    secondary: "Open project highlights",
+    details: ["Brand systems", "Interaction design", "Storytelling"]
+  },
+  {
+    slug: "quiet",
+    label: "10 Quiet Premium",
+    eyebrow: "Restrained luxury with warm editorial spacing",
+    title: "A calm place to begin something ambitious.",
+    body:
+      "The most minimal direction in the set. It trades visual noise for pacing, whitespace, and a more elevated studio-style presence.",
+    cta: "Start the conversation",
+    secondary: "Read about my work",
+    details: ["Thoughtful pacing", "Senior craft", "Strong partnership"]
+  }
+];
+
+const artisticHeroStudies = [
+  {
+    slug: "atelier",
+    label: "11 Atelier Chorus",
+    eyebrow: "Studio warmth, hand-made rhythm, and co-creation",
+    title: exactHeadline,
+    body:
+      "An expressive studio-inspired concept that feels made by people in the room together. It pushes craft, conversation, and iteration to the front.",
+    cta: "Shape the brief",
+    secondary: "See the process",
+    details: ["Shared sketches", "Honest feedback", "Clear direction"]
+  },
+  {
+    slug: "mural",
+    label: "12 Community Mural",
+    eyebrow: "Layered color fields that feel collective and optimistic",
+    title: exactHeadline,
+    body:
+      "A human-centered direction built around overlapping forms and warm color. It suggests many hands contributing to one cohesive outcome.",
+    cta: "Build the vision",
+    secondary: "Review selected work",
+    details: ["Participation", "Momentum", "Trust"]
+  },
+  {
+    slug: "compass",
+    label: "13 Compass Expedition",
+    eyebrow: "Exploration, wayfinding, and brave problem solving",
+    title: exactHeadline,
+    body:
+      "This route frames the work as a guided exploration. The composition borrows from maps and navigational graphics to make collaboration feel adventurous.",
+    cta: "Map the opportunity",
+    secondary: "Explore outcomes",
+    details: ["Discovery routes", "Decision points", "North star"]
+  },
+  {
+    slug: "workshop",
+    label: "14 Workshop Signals",
+    eyebrow: "A high-energy build floor with tools, notes, and experiments",
+    title: exactHeadline,
+    body:
+      "A more tactile concept with rough edges and visible working parts. It leans into making, testing, and solving together instead of polished distance.",
+    cta: "Start the workshop",
+    secondary: "Open the case studies",
+    details: ["Experiments", "Fast loops", "Working sessions"]
+  },
+  {
+    slug: "atlas",
+    label: "15 Atlas Layers",
+    eyebrow: "Editorial travel-poster energy for product exploration",
+    title: exactHeadline,
+    body:
+      "This one feels curious and expansive. It treats collaboration like a journey with landmarks, clues, and progress markers rather than a static pitch.",
+    cta: "Chart the path",
+    secondary: "See featured work",
+    details: ["Curiosity", "Navigation", "Breakthroughs"]
+  },
+  {
+    slug: "lantern",
+    label: "16 Lantern Night",
+    eyebrow: "Guiding light for ambiguous problems and complex teams",
+    title: exactHeadline,
+    body:
+      "A moody but warm direction that turns problem solving into a shared search for clarity. It is more intimate, reflective, and cinematic.",
+    cta: "Find the signal",
+    secondary: "Read the story",
+    details: ["Clarity", "Focus", "Guidance"]
+  },
+  {
+    slug: "paper",
+    label: "17 Cut Paper Field",
+    eyebrow: "Collaged shapes and layered thinking made visible",
+    title: exactHeadline,
+    body:
+      "This concept uses paper-like layers and playful composition to communicate that strong solutions are assembled, tested, and refined piece by piece.",
+    cta: "Compose the solution",
+    secondary: "Browse portfolio",
+    details: ["Layers", "Synthesis", "Human texture"]
+  },
+  {
+    slug: "constellation",
+    label: "18 Constellation Logic",
+    eyebrow: "Connecting dots across insights, teams, and decisions",
+    title: exactHeadline,
+    body:
+      "A more conceptual direction where ideas are represented as nodes and constellations. It is built around pattern finding and collaborative sense-making.",
+    cta: "Connect the dots",
+    secondary: "View project highlights",
+    details: ["Patterns", "Systems", "Alignment"]
+  },
+  {
+    slug: "chorus",
+    label: "19 Human Chorus",
+    eyebrow: "Voices, contributions, and many perspectives in motion",
+    title: exactHeadline,
+    body:
+      "This treatment is vivid, rhythmic, and people-first. It imagines collaboration as an ensemble where the best work comes from coordinated differences.",
+    cta: "Bring voices together",
+    secondary: "See collaborative work",
+    details: ["Listening", "Shared energy", "Collective craft"]
+  },
+  {
+    slug: "problemlab",
+    label: "20 Problem-Solving Lab",
+    eyebrow: "Avant-garde type meets experimental systems thinking",
+    title: exactHeadline,
+    body:
+      "A sharp, poster-like concept that celebrates iteration and invention. It is bold enough to feel memorable while still speaking directly to teamwork.",
+    cta: "Prototype the next move",
+    secondary: "Review the outcomes",
+    details: ["Questions", "Experiments", "Resolved complexity"]
+  }
+];
+
+const mockFeatureCards = [
+  {
+    title: "City Guides",
+    subtitle: "Explore neighborhoods with local insight and practical walking routes.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1200&q=80",
+    icon: "CG",
+    href: "#"
+  },
+  {
+    title: "Wellness Spots",
+    subtitle: "Find calm spaces, classes, and recovery-focused experiences.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80",
+    icon: "WS",
+    href: "#"
+  },
+  {
+    title: "Food Trails",
+    subtitle: "Taste chef-driven picks and neighborhood favorites worth the wait.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80",
+    icon: "FT",
+    href: "#"
+  },
+  {
+    title: "Night Views",
+    subtitle: "Catch skyline moments and after-dark routes with the best vantage points.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=1200&q=80",
+    icon: "NV",
+    href: "#"
+  },
+  {
+    title: "Art Routes",
+    subtitle: "Tour galleries, murals, and contemporary exhibits across the city.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=1200&q=80",
+    icon: "AR",
+    href: "#"
+  }
+];
+---
+<BaseLayout
+  title="Marco Mendoza | Product & UX Designer"
+  description="UI/UX portfolio featuring product case studies, process, and measurable outcomes."
+  currentPath="/"
+>
+  <section class="hero-lab-intro" aria-labelledby="home-title">
+    <div>
+      <Badge label="Hero Explorations" />
+      <h1 id="home-title">20 hero directions for &quot;Let&apos;s build something great together.&quot;</h1>
+    </div>
+    <p>
+      Each concept explores a different mood, layout system, and level of visual intensity so you can compare
+      approaches directly in the browser.
+    </p>
+  </section>
+
+  <section class="hero-lab" aria-labelledby="hero-lab-title">
+    <div class="hero-lab-header">
+      <p class="meta">Creative direction set</p>
+      <h2 id="hero-lab-title">Choose the energy that fits the story you want the homepage to tell.</h2>
+    </div>
+
+    <div class="hero-collection">
+      {
+        heroStudies.map((hero) => (
+          <article class:list={["hero-variant", `hero-${hero.slug}`]} aria-label={hero.label}>
+            <div class="hero-copy">
+              <div class="hero-copy-top">
+                <Badge label={hero.label} />
+                <p class="hero-eyebrow">{hero.eyebrow}</p>
+              </div>
+              <h3>{hero.title}</h3>
+              <p class="hero-body">{hero.body}</p>
+              <div class="hero-detail-row" aria-label={`${hero.label} focus areas`}>
+                {hero.details.map((detail) => (
+                  <span>{detail}</span>
+                ))}
+              </div>
+              <div class="hero-actions">
+                <Button href="#featured-rail-title">{hero.cta}</Button>
+                <Button href="#project-highlights" variant="secondary">
+                  {hero.secondary}
+                </Button>
+              </div>
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+              <div class="hero-visual-panel panel-a">
+                <span class="panel-label">North Star</span>
+                <strong>Shared ambition</strong>
+              </div>
+              <div class="hero-visual-panel panel-b">
+                <span class="panel-label">Build Loop</span>
+                <strong>Plan. Design. Refine. Launch.</strong>
+              </div>
+              <div class="hero-visual-panel panel-c">
+                <span class="panel-label">Signals</span>
+                <strong>Team alignment, confident craft, measurable momentum.</strong>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="hero-lab hero-lab-avant" aria-labelledby="hero-lab-avant-title">
+    <div class="hero-lab-header">
+      <p class="meta">Artistic and human direction set</p>
+      <h2 id="hero-lab-avant-title">
+        Ten more concepts using the exact headline, with more collaboration, exploration, and problem-solving energy.
+      </h2>
+    </div>
+
+    <div class="hero-collection hero-collection-avant">
+      {
+        artisticHeroStudies.map((hero) => (
+          <article class:list={["hero-variant", "hero-avant", `hero-${hero.slug}`]} aria-label={hero.label}>
+            <div class="hero-copy">
+              <div class="hero-copy-top">
+                <Badge label={hero.label} />
+                <p class="hero-eyebrow">{hero.eyebrow}</p>
+              </div>
+              <h3>{hero.title}</h3>
+              <p class="hero-body">{hero.body}</p>
+              <div class="hero-detail-row" aria-label={`${hero.label} focus areas`}>
+                {hero.details.map((detail) => (
+                  <span>{detail}</span>
+                ))}
+              </div>
+              <div class="hero-actions">
+                <Button href="#featured-rail-title">{hero.cta}</Button>
+                <Button href="#project-highlights" variant="secondary">
+                  {hero.secondary}
+                </Button>
+              </div>
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+              <div class="hero-visual-panel panel-a">
+                <span class="panel-label">Collaboration</span>
+                <strong>Ideas move farther when we build them together.</strong>
+              </div>
+              <div class="hero-visual-panel panel-b">
+                <span class="panel-label">Exploration</span>
+                <strong>Sketch the unknown. Test the route. Learn out loud.</strong>
+              </div>
+              <div class="hero-visual-panel panel-c">
+                <span class="panel-label">Problem Solving</span>
+                <strong>Turn complexity into something clear, useful, and human.</strong>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="featured-rail-title">
+    <h2 id="featured-rail-title">Featured Work</h2>
+    <FeatureCardRail
+      heading="Case Studies"
+      railId="home-feature-cards"
+      cardSize="lg"
+      items={mockFeatureCards}
+    />
+  </section>
+
+  <section class="section" aria-labelledby="project-highlights">
+    <h2 id="project-highlights">Additional Project Highlights</h2>
+    <div class="layout-grid">
+      {
+        projectHighlights.map((project) => (
+          <div class="grid-span-6">
+            <Card
+              eyebrow={project.type}
+              title={project.title}
+              body={project.description}
+              href={project.href}
+              linkLabel="Read summary"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+  <section class="section" aria-labelledby="work-history">
+    <h2 id="work-history">Work History</h2>
+    <div class="layout-grid"></div>
+  </section>
+  <section class="section" aria-labelledby="about-me">
+    <h2 id="about-me">About Me</h2>
+    <div class="layout-grid"></div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,126 @@
+---
+import "../toolbar.css";
+import type { ToolbarItem, ToolbarProps } from "../types";
+
+const {
+  brand = "Marco Mendoza",
+  currentPath = "/",
+  items = [
+    { href: "/", label: "Home" },
+    { href: "/work", label: "Work" },
+    { href: "/about", label: "About" },
+    { href: "/style-guide", label: "Style Guide" },
+    { href: "/contact", label: "Contact" }
+  ],
+  showThemeToggle = false
+} = Astro.props as ToolbarProps;
+
+const normalizedBrand = brand.trim();
+let brandLineOne = normalizedBrand;
+let brandLineTwo = "";
+
+if (normalizedBrand.includes(" ")) {
+  const firstSpace = normalizedBrand.indexOf(" ");
+  brandLineOne = normalizedBrand.slice(0, firstSpace);
+  brandLineTwo = normalizedBrand.slice(firstSpace + 1).trim();
+} else {
+  const midpoint = Math.ceil(normalizedBrand.length / 2);
+  brandLineOne = normalizedBrand.slice(0, midpoint);
+  brandLineTwo = normalizedBrand.slice(midpoint);
+}
+---
+
+<header class="ui-toolbar">
+  <div class="ui-toolbar__inner">
+    <a class="ui-toolbar__brand" href="/" aria-label={normalizedBrand}>
+      <span class="ui-toolbar__brand-line">{brandLineOne}</span>
+      <span class="ui-toolbar__brand-line">{brandLineTwo}</span>
+    </a>
+    <button
+      class="ui-toolbar__menu-button"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Open navigation menu"
+      data-toolbar-menu-button
+    >
+      <span class="ui-toolbar__menu-icon" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+    <nav id="primary-navigation" aria-label="Primary" data-toolbar-nav>
+      <ul class="ui-toolbar__nav">
+        {
+          items.map((item: ToolbarItem) => (
+            <li>
+              <a
+                class="ui-toolbar__link"
+                href={item.href}
+                aria-current={currentPath === item.href ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    {
+      showThemeToggle && (
+        <button id="theme-toggle" class="ui-toolbar__theme" type="button" aria-pressed="false">
+          Theme: Fern
+        </button>
+      )
+    }
+  </div>
+</header>
+
+<script is:inline>
+  (() => {
+    const toolbar = document.querySelector(".ui-toolbar");
+    const menuButton = toolbar?.querySelector("[data-toolbar-menu-button]");
+    const nav = toolbar?.querySelector("[data-toolbar-nav]");
+
+    if (!(menuButton instanceof HTMLButtonElement) || !(nav instanceof HTMLElement)) {
+      return;
+    }
+
+    const closeMenu = () => {
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.setAttribute("aria-label", "Open navigation menu");
+      toolbar?.removeAttribute("data-menu-open");
+    };
+
+    const openMenu = () => {
+      menuButton.setAttribute("aria-expanded", "true");
+      menuButton.setAttribute("aria-label", "Close navigation menu");
+      toolbar?.setAttribute("data-menu-open", "true");
+    };
+
+    const syncMenu = () => {
+      if (window.innerWidth > 900) {
+        closeMenu();
+      }
+    };
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        closeMenu();
+      });
+    });
+
+    window.addEventListener("resize", syncMenu);
+    syncMenu();
+  })();
+</script>

@@ -1,0 +1,14 @@
+{
+  "name": "@portfolio/tokens",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./styles/index.css",
+    "./styles/index.css": "./styles/index.css",
+    "./styles/themes.css": "./styles/themes.css",
+    "./styles/typography.css": "./styles/typography.css",
+    "./styles/layout.css": "./styles/layout.css",
+    "./tokens.json": "./tokens.json"
+  }
+}

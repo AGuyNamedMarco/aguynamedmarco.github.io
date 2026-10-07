@@ -1,0 +1,17 @@
+.ui-badge {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: var(--step--1);
+  background: var(--surface-alt);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.ui-badge[data-tone="success"] {
+  color: #0f5132;
+}
+
+.ui-badge[data-tone="warning"] {
+  color: #7a4b00;
+}

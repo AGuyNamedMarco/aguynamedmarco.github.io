@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { caseStudies } from "../../data/projects";
+---
+<BaseLayout
+  title="Work | Case Studies"
+  description="In-depth UX case studies with process and outcome details."
+  currentPath="/work"
+>
+  <section aria-labelledby="work-title">
+    <h1 id="work-title">Case Studies</h1>
+    <p class="meta">Selected product design projects with measurable outcomes.</p>
+    <ul class="case-study-list">
+      {
+        caseStudies.map((study) => (
+          <li>
+            <p class="meta">{study.role} - {study.timeline}</p>
+            <h2>
+              <a href={`/work/${study.slug}/`}>{study.title}</a>
+            </h2>
+            <p>{study.summary}</p>
+            <p>
+              <a href={`/work/${study.slug}/`} aria-label={`Open case study ${study.title}`}>
+                Read full case study
+              </a>
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>

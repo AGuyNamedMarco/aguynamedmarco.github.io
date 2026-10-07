@@ -1,0 +1,88 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const typeScale = [
+  { name: "step--2", size: "0.694rem", usage: "Captions" },
+  { name: "step--1", size: "0.833rem", usage: "Meta text" },
+  { name: "step-0", size: "1rem", usage: "Body text" },
+  { name: "step-1", size: "1.2rem", usage: "Lead copy" },
+  { name: "step-2", size: "1.44rem", usage: "Small headings" },
+  { name: "step-3", size: "1.728rem", usage: "Section headings" },
+  { name: "step-4", size: "2.074rem", usage: "Page headings" },
+  { name: "step-5", size: "2.488rem", usage: "Display 2" },
+  { name: "step-6", size: "2.986rem", usage: "Display 1" }
+];
+---
+<BaseLayout
+  title="Style Guide | Marco Chen"
+  description="Portfolio design tokens and system guide for themes, typography, and layout grid."
+  currentPath="/style-guide"
+>
+  <section class="section" aria-labelledby="style-title">
+    <h1 id="style-title">Style Guide</h1>
+    <p class="meta">Design tokens, theming, and layout rules used across this portfolio.</p>
+  </section>
+
+  <section class="section card" aria-labelledby="theme-title">
+    <h2 id="theme-title">Theme Tokens</h2>
+    <p>Use the header toggle to swap themes. Tokens are driven by <code>data-theme</code> on the document root.</p>
+    <div class="swatch-grid" role="list" aria-label="Theme token swatches">
+      <div class="swatch" role="listitem">
+        <p><strong>Background</strong></p>
+        <div class="swatch-chip" style="background: var(--bg);"></div>
+      </div>
+      <div class="swatch" role="listitem">
+        <p><strong>Surface</strong></p>
+        <div class="swatch-chip" style="background: var(--surface);"></div>
+      </div>
+      <div class="swatch" role="listitem">
+        <p><strong>Accent</strong></p>
+        <div class="swatch-chip" style="background: var(--accent);"></div>
+      </div>
+      <div class="swatch" role="listitem">
+        <p><strong>Accent Strong</strong></p>
+        <div class="swatch-chip" style="background: var(--accent-strong);"></div>
+      </div>
+      <div class="swatch" role="listitem">
+        <p><strong>Border</strong></p>
+        <div class="swatch-chip" style="background: var(--border);"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section card" aria-labelledby="type-title">
+    <h2 id="type-title">Typography Scale (Minor Third 1.200)</h2>
+    <ul class="code-list">
+      {
+        typeScale.map((item) => (
+          <li>
+            <code>--{item.name}: {item.size}</code> - {item.usage}
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="section card" aria-labelledby="grid-title">
+    <h2 id="grid-title">Grid System</h2>
+    <p>Layout uses a 12-column CSS grid with utility classes: <code>.layout-grid</code> and span helpers.</p>
+    <div class="layout-grid" aria-label="Grid layout sample">
+      <div class="card grid-span-8">
+        <h3>Span 8</h3>
+        <p>Main content region for project narratives and case study details.</p>
+      </div>
+      <div class="card grid-span-4">
+        <h3>Span 4</h3>
+        <p>Supporting panel for metadata, tags, and status information.</p>
+      </div>
+      <div class="card grid-span-6">
+        <h3>Span 6</h3>
+        <p>Balanced two-column layout section.</p>
+      </div>
+      <div class="card grid-span-6">
+        <h3>Span 6</h3>
+        <p>Balanced two-column layout section.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

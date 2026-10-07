@@ -1,0 +1,10 @@
+---
+import "../button.css";
+import type { ButtonProps } from "../types";
+
+const { href, label = "", variant = "primary" } = Astro.props as ButtonProps;
+---
+
+<a class="ui-button" data-variant={variant} href={href}>
+  <slot>{label}</slot>
+</a>

@@ -1,0 +1,21 @@
+---
+import "../feature-card.css";
+import type { FeatureCardProps } from "../types";
+
+const { title, subtitle, imageUrl, icon, size = "md", href = "#" } = Astro.props as FeatureCardProps;
+---
+
+<article class="ui-feature-card" data-size={size}>
+  <a
+    class="ui-feature-card__surface"
+    href={href}
+    style={`--feature-card-bg: url("${imageUrl}")`}
+    aria-label={`${title} - ${subtitle}`}
+  >
+    <span class="ui-feature-card__content">
+      <span class="ui-feature-card__title">{title}</span>
+      <span class="ui-feature-card__subtitle">{subtitle}</span>
+    </span>
+    <span class="ui-feature-card__icon" aria-hidden="true">{icon}</span>
+  </a>
+</article>

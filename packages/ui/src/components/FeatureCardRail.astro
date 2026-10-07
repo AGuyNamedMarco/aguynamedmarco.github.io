@@ -1,0 +1,72 @@
+---
+import "../feature-card-rail.css";
+import FeatureCard from "./FeatureCard.astro";
+import type { FeatureCardRailProps } from "../types";
+
+const { heading = "Featured", railId = "feature-card-rail", cardSize = "md", items } =
+  Astro.props as FeatureCardRailProps;
+---
+
+<section class="ui-feature-card-rail" data-rail-id={railId} data-size={cardSize} aria-label={heading}>
+  <div class="ui-feature-card-rail__header">
+    <h2 class="ui-feature-card-rail__title">{heading}</h2>
+    <div class="ui-feature-card-rail__actions">
+      <button type="button" class="ui-feature-card-rail__btn" data-dir="prev" aria-label="Show previous cards">
+        Prev
+      </button>
+      <button type="button" class="ui-feature-card-rail__btn" data-dir="next" aria-label="Show next cards">
+        Next
+      </button>
+    </div>
+  </div>
+
+  <div class="ui-feature-card-rail__track" id={railId} tabindex="0">
+    {
+      items.map((item) => (
+        <div class="ui-feature-card-rail__item">
+          <FeatureCard {...item} size={item.size ?? cardSize} />
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const currentScript = document.currentScript;
+    const root = currentScript?.closest("[data-rail-id]");
+    if (!(root instanceof HTMLElement)) return;
+
+    const track = root.querySelector(".ui-feature-card-rail__track");
+    const prevButton = root.querySelector("[data-dir='prev']");
+    const nextButton = root.querySelector("[data-dir='next']");
+    if (!(track instanceof HTMLElement) || !(prevButton instanceof HTMLButtonElement) || !(nextButton instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    const getStep = () => {
+      const firstCard = track.querySelector(".ui-feature-card-rail__item");
+      if (!(firstCard instanceof HTMLElement)) return track.clientWidth * 0.9;
+      const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || "0");
+      return firstCard.getBoundingClientRect().width + gap;
+    };
+
+    const updateButtons = () => {
+      const maxScrollLeft = track.scrollWidth - track.clientWidth - 2;
+      prevButton.disabled = track.scrollLeft <= 1;
+      nextButton.disabled = track.scrollLeft >= maxScrollLeft;
+    };
+
+    prevButton.addEventListener("click", () => {
+      track.scrollBy({ left: -getStep(), behavior: "smooth" });
+    });
+
+    nextButton.addEventListener("click", () => {
+      track.scrollBy({ left: getStep(), behavior: "smooth" });
+    });
+
+    track.addEventListener("scroll", updateButtons, { passive: true });
+    window.addEventListener("resize", updateButtons, { passive: true });
+    updateButtons();
+  })();
+</script>
