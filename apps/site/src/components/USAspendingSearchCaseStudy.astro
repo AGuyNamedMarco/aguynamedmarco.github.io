@@ -1,0 +1,108 @@
+---
+const finalSearchImage = "https://raw.githubusercontent.com/AGuyNamedMarco/aguynamedmarco.github.io/main/assets/figma-exports/USA%20Spending%20Search_final.png";
+const currentSearchImage = "https://raw.githubusercontent.com/AGuyNamedMarco/aguynamedmarco.github.io/main/assets/www.usaspending.gov_search_hash%3D08a4cfd0959b187ad878523f896d02c0.png";
+---
+<article class="case-study">
+  <header class="case-hero">
+    <p class="meta">U.S. Department of the Treasury, Bureau of the Fiscal Service</p>
+    <h1>USAspending.gov — Search Experience</h1>
+    <p class="lede">Understanding where federal money goes requires more than finding individual records; users need to investigate spending across agencies, recipients, and award types. As the primary designer of USAspending.gov’s search experience, I designed the page layout, filtering tools, and results views, producing prototypes and detailed designs for engineering.</p>
+    <div class="case-facts">
+      <p><strong>Role</strong><br />Primary designer</p>
+      <p><strong>Focus</strong><br />Search, filtering & data analysis</p>
+      <p><strong>Launch</strong><br />2017, progressively expanded</p>
+    </div>
+    <figure><img src={finalSearchImage} alt="Final USAspending Search interface design" /><figcaption>USAspending Search interface design.</figcaption></figure>
+  </header>
+
+  <section><h2>Background</h2>
+    <p>USAspending.gov is the official source for U.S. government spending data. Its mission is to help the public understand how federal money is spent, tracing it from congressional appropriations through agencies to communities and businesses. Making this information publicly accessible supports transparency and accountability.</p>
+    <p>The previous search experience provided basic database lookup capabilities through large forms and tables. While users could find individual records, the experience was under-optimized for broader analysis. The redesign presented an opportunity to support deeper investigation alongside individual record lookups: how much was spent, which organizations received funding, which agencies were spending money, and how those answers changed as users refined a search.</p>
+  </section>
+
+  <section><h2>My Role and Collaboration</h2>
+    <p>I was the primary designer of the search page, responsible for defining how users would search, refine their results, and interpret the information returned. I worked through the full design cycle, from early wireframes and prototypes to high-fidelity designs and specifications for engineering. That included the filter system, page layout, tables, maps, analytical views, and reusable interface patterns.</p>
+    <p>I worked closely with product owners, engineers, researchers, and subject matter experts. Their input helped me understand user needs, the structure and meaning of the data, analytical opportunities, and the constraints the interface had to respect. I owned the design of the experience; data curation and engineering implementation were responsibilities of other team members.</p>
+  </section>
+
+  <section><h2>Design Process</h2>
+    <h3>Research</h3>
+    <h4>Legacy USAspending</h4>
+    <p>I began by reviewing the existing search experience to understand what users could already do and where broader analysis became difficult. Its filters opened in a large form that obscured the results, the table had a fixed set of columns, and the page lacked visualizations for examining trends. These limitations informed several core choices: keep filters beside results, allow configurable table columns, and introduce analytical views that reveal patterns beyond individual records.</p>
+    <h4>Competitive landscape</h4>
+    <p>I reviewed other search and data-analysis interfaces to explore ways to organize filters and connect detailed records with analytical views. Public data platforms and commercial spending-analysis tools helped frame the opportunity to provide a more approachable analytical experience through a free public resource.</p>
+    <h4>Subject Matter Experts</h4>
+    <p>Understanding the interface required understanding the data behind it. SMEs helped me recognize that “spending” could refer to different stages and amounts, that record types had different attributes and applicable filters, and that issues such as inconsistent company names and multiple record locations affected what the search could meaningfully show.</p>
+
+    <h3>Initial Design Round</h3>
+    <h4>Design studio sessions</h4>
+    <p>Collaborative sketching sessions gave people across disciplines a way to explore different layouts together. Participants sketched possible Search pages, marked promising ideas, and discussed the strongest concepts. The exercise helped the team converge on a shared direction.</p>
+    <h4>Low-fidelity mockups</h4>
+    <p>I synthesized research and the design studio into wireframes exploring a persistent filter column, summary statistics, category charts, geographic spending, and a sortable table of individual records with configurable columns.</p>
+
+    <h3>Feedback Collection</h3>
+    <p>Early concepts were published through openbeta.usaspending.gov with an open commenting system, and we invited users of the legacy site to review the developing experience. Feedback was generally positive but exposed difficulty with terminology and specialized filters. That reinforced the need for contextual explanations and browsable NAICS and PSC categories.</p>
+
+    <h3>Design Refinement</h3>
+    <p>Medium-fidelity designs solidified the core concepts while giving engineering enough direction to begin early component work. They also gave the client concrete designs to socialize with stakeholders for feedback and approvals. Further internal reviews and user outreach kept refinement connected to requirements, implementation constraints, and how people understood the search tools.</p>
+
+    <h3>Finalization and Engineering Handoff</h3>
+    <p>After stakeholder approval, I prepared detailed high-fidelity mockups, design specifications, and interaction demonstrations for engineering. We collaborated closely during implementation to answer questions and provide assets.</p>
+    <h4>Progressive Rollout</h4>
+    <p>Technical limitations meant the full analytical experience could not ship in the initial release. Working with the team and client, we scaled the first results presentation back to a table view and planned the additional visualizations for later releases. This let us deliver the core search experience while retaining a shared direction for its continued development.</p>
+  </section>
+
+  <section><h2>Key Design Decisions</h2>
+    <div class="decision"><span>01</span><div><h3>Keeping Filters and Results Together</h3><p>A search was often the beginning of an investigation rather than its final step. I used a two-column layout with filters in a sidebar and results beside it so users could inspect what came back, change their question, and refine the records without leaving the analytical workspace.</p><p class="tradeoff"><strong>Tradeoff:</strong> A persistent filter column reduced space for results, but I accepted that density because repeated refinement was central to the workflow.</p></div></div>
+    <figure><img src={currentSearchImage} alt="USAspending Search showing filters and results in the same analytical workspace" /><figcaption>The analytical workspace keeps query controls and results together.</figcaption></figure>
+
+    <div class="decision"><span>02</span><div><h3>Organizing Filters Without Replacing Familiar Terms</h3><p>I organized a comprehensive set of filters around the questions users brought to their search. For specialized federal terminology, research and SME discussions showed that experienced users expected the established terms. Rather than rename them, I paired familiar labels with explanations for less experienced users.</p><p>NAICS and PSC classifications were presented as hierarchical trees so users could browse from broad categories to specific options instead of knowing a code in advance. Tooltips explained what each filter searched.</p></div></div>
+
+    <div class="decision"><span>03</span><div><h3>Combining Record-Level Detail with Broader Analysis</h3><p>A table could locate a particular contract but offered limited help with questions about spending across agencies, recipients, industries, or locations. I designed results to combine detailed records with charts, maps, and summary views so the same filtered set could be examined at multiple levels.</p><p>This let users move from finding individual records to investigating patterns without first downloading raw data and building their own summaries.</p></div></div>
+
+    <div class="decision"><span>04</span><div><h3>Making Repeated Actions Easier</h3><p>I designed persistent actions, type-ahead inputs, quick-select options, hierarchical controls, contextual explanations, and clear labels around actions users repeated throughout an investigation. These details were intended to keep attention on the question being investigated rather than on operating the interface.</p></div></div>
+  </section>
+
+  <section><h2>Evaluation and Outcome</h2>
+    <p>The redesign raised the capability available in a free public tool for federal spending transparency, analysis, and accountability. Robust filters, relevant award records, and analytical views let users investigate spending across agencies, recipients, industries, and locations without assembling those views themselves.</p>
+    <p>Internal reviewers and users of the previous website responded positively. As context for the platform’s continuing reach, USAspending.gov recorded approximately 3.18 million reported site-wide page views in the 30-day reporting period covered by an October 3, 2026 analytics report. This is site-wide traffic, not unique visitors or a measure of this redesign’s impact.</p>
+  </section>
+
+  <section class="reception"><h2>External Reception</h2>
+    <blockquote>“The search filters on the new site work well”<cite>Sean Moulton, Project On Government Oversight (POGO), 2018</cite></blockquote>
+    <blockquote>“a more user-friendly agency profile tab and award search”<cite>Open Government Partnership, Independent Reporting Mechanism</cite></blockquote>
+    <blockquote>“These are extremely helpful perspectives.”<cite>Sean Moulton, POGO, 2018</cite></blockquote>
+    <blockquote>“particularly well received by civil society stakeholders”<cite>Open Government Partnership, Independent Reporting Mechanism</cite></blockquote>
+    <blockquote>“a laudable example of the federal government successfully tackling an enormous project efficiently and effectively”<cite>FEDmanager, 2017</cite></blockquote>
+    <blockquote>“The single most powerful BD research tool that most people underuse.”<cite>Acqlerate</cite></blockquote>
+  </section>
+
+  <section><h2>Reflections & Lessons Learned</h2>
+    <h3>Understanding the Learning Curve</h3>
+    <p>I initially aimed to make search useful to both experienced users and people unfamiliar with federal spending. Testing with novices showed how difficult that balance would be. When asked how much was spent on construction in Virginia, users often entered “construction” and “Virginia” into keyword search. That was valid, but location filters and relevant industry or product/service codes would define the needed records more precisely.</p>
+    <p>The search could not behave like a general-purpose search engine and interpret an entire plain-language question. I leaned toward preserving the depth experienced users relied on while helping novices learn through tooltips, category browsing, and explanatory resources.</p>
+
+    <h3>Designing Within Technical and Data Constraints</h3>
+    <p>The experience had to account for limitations in query interpretation, record indexing, and download preparation. Structured filters, category browsing, and contextual guidance helped users define searches. When downloads took time to prepare, I designed a separate status tab that explained the wait and provided the file when ready.</p>
+    <p>Indexing also affected discoverability. Main search covered contract records but not underlying transaction descriptions, so a contract described as “office supplies” could contain a transaction for “pencils” yet remain absent from a keyword search for pencils. A separate transaction search gave users a way to investigate at that more detailed level.</p>
+
+    <h3>Staying Flexible Through Collaboration</h3>
+    <p>Scaling the initial release back to a table view reinforced the importance of separating the longer-term design from what could be delivered in a particular release. Discussing limitations with engineering and the client helped establish a workable path forward while keeping the intended user benefits in view.</p>
+  </section>
+
+  <section><h2>What I’d Refine Today</h2>
+    <div class="refine-grid">
+      <div><h3>Pre-Made Searches</h3><p>Useful starting points for common topics such as defense spending and education, demonstrating how filters work together.</p></div>
+      <div><h3>Search Tutorials</h3><p>Practical examples showing how to choose and combine filters and understand the scope of results.</p></div>
+      <div><h3>Condensed Summary</h3><p>Bring key totals into a concise overview before users explore individual records and deeper analytical views.</p></div>
+      <div><h3>Time Comparisons</h3><p>Compare values across periods to reveal trends, shifts in priorities, and changes in funding.</p></div>
+      <div><h3>Compact Analysis</h3><p>Bring more related visualizations into one cohesive overview with less scrolling.</p></div>
+    </div>
+  </section>
+
+  <footer class="case-footer"><p>AI-assisted tools helped organize and edit this case study. The work, decisions, and recollections described are my own.</p><a href="/work">Back to all case studies</a></footer>
+</article>
+
+<style>
+.case-study{max-width:1080px;margin:0 auto}.case-study section,.case-hero{padding:clamp(3rem,7vw,6rem) 0;border-bottom:1px solid var(--color-border,#d7d7d7)}.case-hero h1{font-size:clamp(3rem,8vw,6.5rem);line-height:.92;max-width:12ch;margin:.35em 0}.lede{font-size:clamp(1.2rem,2.4vw,1.65rem);line-height:1.5;max-width:42em}.case-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2.5rem 0}.case-study h2{font-size:clamp(2rem,4vw,3.4rem);max-width:16ch}.case-study h3{margin-top:2.25rem}.case-study h4{margin:1.5rem 0 .4rem}.case-study p{max-width:72ch;line-height:1.7}.case-study figure{margin:3rem 0}.case-study img{display:block;width:100%;height:auto;border:1px solid var(--color-border,#d7d7d7)}figcaption{font-size:.85rem;margin-top:.65rem;opacity:.7}.decision{display:grid;grid-template-columns:4rem 1fr;gap:1rem;margin:4rem 0}.decision>span{font-size:1.5rem;font-weight:700}.decision h3{margin-top:0;font-size:1.8rem}.tradeoff{opacity:.8}.reception blockquote{font-size:clamp(1.25rem,2.5vw,2rem);max-width:32em;margin:3rem 0}.reception cite{display:block;font-size:.85rem;font-style:normal;margin-top:1rem;opacity:.7}.refine-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.refine-grid>div{border:1px solid var(--color-border,#d7d7d7);padding:1.5rem}.refine-grid h3{margin-top:0}.case-footer{padding:3rem 0 5rem}.case-footer p{font-size:.85rem;opacity:.7}@media(max-width:700px){.case-facts,.refine-grid{grid-template-columns:1fr}.decision{grid-template-columns:1fr}.case-hero h1{font-size:3.2rem}}
+</style>
