@@ -1,5 +1,6 @@
 .case-study {
   --case-figure-bg: var(--surface);
+  --case-figure-spacing: clamp(var(--space-3), 2vw, var(--space-5));
   --case-muted: var(--text-muted);
   --case-reading-width: 50rem;
   --case-visual-width: 67.5rem;
@@ -64,7 +65,7 @@
   display: grid;
   gap: var(--space-2);
   width: 100%;
-  margin: 0;
+  margin: var(--case-figure-spacing) 0;
   padding: var(--space-4);
   background: var(--case-figure-bg);
   text-align: center;
@@ -74,6 +75,7 @@
 .case-feedback figcaption { color: var(--case-muted); font-size: 0.875rem; }
 
 .case-lead-figure { margin-block-end: var(--space-4); }
+.case-study .case-figure img { box-shadow: 0 4px 12px rgb(0 0 0 / 24%); }
 .case-section {
   display: grid;
   gap: var(--case-block-gap);
@@ -142,10 +144,7 @@
   width: min(100%, 60rem);
 }
 
-.case-analysis-crop { position: relative; overflow: hidden; aspect-ratio: 520 / 350; background: white; }
-.case-analysis-crop img { position: absolute; width: calc(760 / 520 * 100%); left: calc(-211 / 520 * 100%); }
-.case-analysis-crop.time img { top: calc(-646 / 350 * 100%); }
-.case-analysis-crop.map img { top: calc(-1250 / 350 * 100%); }
+.case-analysis-pair img { display: block; width: 100%; height: auto; background: white; }
 .case-study .case-disclosure { color: var(--case-muted); font-size: 0.875rem; margin-top: var(--space-3); }
 .case-closing {
   display: flex;

@@ -1,15 +1,17 @@
 ---
 import CaseStudyFigure from "./CaseStudyFigure.astro";
 import "../styles/case-study.css";
-import originalSearch from "../../../../assets/figma-exports/USA Spending Search_final.png";
+// These crops retain the original Figma export's pixels and give each screenshot its own image box.
+import overview from "../assets/search/overview.webp";
+import filtersAndResults from "../assets/search/filters-and-results.webp";
+import timePeriod from "../assets/search/time-period.webp";
+import currentFilters from "../assets/search/current-filters.webp";
+import resultsTable from "../assets/search/results-table.webp";
+import spendingOverTime from "../assets/search/spending-over-time.webp";
+import spendingByGeography from "../assets/search/spending-by-geography.webp";
 
 const source = "Original interface design.";
 const feedbackUrl = "https://onevoicecrm.my.site.com/usaspending/s/question/0D53d000005SK2HCAW/look-and-feel-of-search-page";
-
-// Crop coordinates use a half-scale reference of the original 1520px-wide export.
-function searchCrop(alt: string, x: number, y: number, width: number, height: number) {
-  return { src: originalSearch.src, width: originalSearch.width / 2, alt, crop: { x, y, width, height } };
-}
 ---
 
 <article class="case-study">
@@ -35,7 +37,7 @@ function searchCrop(alt: string, x: number, y: number, width: number, height: nu
 
   <div class="case-lead-figure">
     <CaseStudyFigure size="large" caption="Final USAspending Search interface design" source={source}
-      image={searchCrop("USAspending Search design with filters on the left and award records on the right.", 0, 0, 760, 640)} />
+      image={{ asset: overview, alt: "USAspending Search design with filters on the left and award records on the right." }} />
   </div>
 
   <section class="case-section">
@@ -90,7 +92,7 @@ function searchCrop(alt: string, x: number, y: number, width: number, height: nu
       <p>The sidebar left less room for results, but I prioritized keeping search controls accessible during repeated refinement.</p>
       </div>
       <CaseStudyFigure size="large" caption="Filters remain beside results so users can refine a search while reviewing what it returns." source={source}
-        image={searchCrop("Filter sidebar and spending results within the same workspace.", 26, 112, 710, 518)} />
+        image={{ asset: filtersAndResults, alt: "Filter sidebar and spending results within the same workspace." }} />
     </section>
 
     <section class="case-decision">
@@ -116,13 +118,13 @@ function searchCrop(alt: string, x: number, y: number, width: number, height: nu
         <p>Fiscal-year shortcuts supported common time selections, while a date-range option allowed more specific searches. Clear labels, search suggestions and visible selections helped users keep track of their choices.</p>
       </div>
       <CaseStudyFigure size="medium" caption="Fiscal-year shortcuts support common selections, while a date-range option allows more specific periods." source={source}
-        image={searchCrop("Time Period filter with fiscal-year shortcuts and a Date Range tab.", 30, 222, 166, 162)} />
+        image={{ asset: timePeriod, alt: "Time Period filter with fiscal-year shortcuts and a Date Range tab." }} />
       <div class="case-figure-pair">
         <CaseStudyFigure size="medium" caption="A help entry point beside the keyword control makes guidance available where users begin their search.">
           <div class="case-placeholder">Keyword search with help entry point</div>
         </CaseStudyFigure>
         <CaseStudyFigure size="medium" caption="Visible selections keep the current search criteria available for review and adjustment." source={source}
-          image={searchCrop("Current Filters area listing fiscal years and award type selections.", 206, 116, 531, 63)} />
+          image={{ asset: currentFilters, alt: "Current Filters area listing fiscal years and award type selections." }} />
       </div>
     </section>
 
@@ -133,11 +135,11 @@ function searchCrop(alt: string, x: number, y: number, width: number, height: nu
       <p>I designed these views around the same filtered results, allowing users to explore the data without first downloading it and building their own charts. Configurable table columns also let users bring relevant fields into view.</p>
       </div>
       <CaseStudyFigure size="large" caption="A sortable table supports detailed inspection, with additional columns available for different analytical needs." source={source}
-        image={searchCrop("Sortable results table with award type tabs and additional columns.", 211, 189, 520, 448)} />
+        image={{ asset: resultsTable, alt: "Sortable results table with award type tabs and additional columns." }} />
       <CaseStudyFigure size="medium" caption="Charts and maps provide complementary ways to examine patterns within the filtered results." source={source}>
         <div class="case-analysis-pair">
-          <div class="case-analysis-crop time"><img src={originalSearch.src} loading="lazy" decoding="async" alt="Spending Over Time bar chart." /></div>
-          <div class="case-analysis-crop map"><img src={originalSearch.src} loading="lazy" decoding="async" alt="Spending by Geography map of the United States." /></div>
+          <img src={spendingOverTime.src} width={spendingOverTime.width} height={spendingOverTime.height} loading="lazy" decoding="async" alt="Spending Over Time bar chart." />
+          <img src={spendingByGeography.src} width={spendingByGeography.width} height={spendingByGeography.height} loading="lazy" decoding="async" alt="Spending by Geography map of the United States." />
         </div>
       </CaseStudyFigure>
     </section>
