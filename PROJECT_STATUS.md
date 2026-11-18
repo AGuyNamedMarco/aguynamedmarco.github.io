@@ -1,6 +1,10 @@
 # Portfolio project status
 
-Updated: 2026-11-17
+Updated: 2026-11-18
+
+## Desktop footer
+
+- Offset the footer by the fixed sidebar width on desktop so its border and content clear the sidebar.
 
 ## GitHub workflow — November 17
 
