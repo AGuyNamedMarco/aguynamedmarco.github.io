@@ -2,10 +2,10 @@
 
 Updated: 2026-11-17
 
-## Private browser preview — November 17
+## GitHub workflow — November 17
 
-- The project owner can review the latest build at the private browser preview.
-- Refresh the same private preview after reviewable portfolio changes. See `STAGING.md` for the workflow.
+- GitHub is the source of truth for portfolio code, copy, and project decisions.
+- Use `staging/portfolio-review` for the current draft. Review changes through GitHub and merge to `main` when approved for production. See `STAGING.md`.
 
 ## Search wireframe — November 17
 
@@ -21,7 +21,7 @@ Updated: 2026-11-17
   `.github/workflows/deploy-pages.yml`; the older hosting notes below are historical.
 - Keep staging work separate from main; a push to main deploys production.
 - The live Search case-study format is the chosen reference for future edits.
-- The Portfolio Website planning page in Notion links to the current writing sources.
+- The Notion planning page and earlier drafts document the writing process up to this point.
 - No website copy or design changes were made as part of staging setup.
 - Fixed root dev-command argument forwarding so the managed preview can set
   its host and port correctly.
@@ -29,7 +29,7 @@ Updated: 2026-11-17
   Homepage and Search navigation verified in the staging browser.
 
 ## Current state
-Imported from Marco's local portfolio ZIP. This branch replaces the older Jekyll source while preserving it in Git history. No Pages deployment is enabled by this migration.
+The Astro workspace replaced the older Jekyll source, which remains in Git history.
 
 ## Implemented
 - Astro/TypeScript npm workspace with site, UI library, and design tokens
@@ -45,19 +45,15 @@ Imported from Marco's local portfolio ZIP. This branch replaces the older Jekyll
 - Replace mock featured cards, sample projects, and unsupported sample metrics
 - Populate homepage Work History and About Me
 - Replace About/Contact identity and contact placeholders; add real resume link
-- Integrate the latest approved Search case study and visuals
-- Verify whether previously authorized Search edits 2–6 and quote reordering were saved in the source document
+- Review the Search draft and replace the remaining image placeholders
 - Develop Govini library/templates case study; third case study remains deferred
 - Verify browser interactions, responsiveness, and accessibility
 - Local validation passed: npm ci, npm run check (0 errors/warnings), npm run build (8 pages)
-- Confirm GitHub Pages eligibility for this private repository before enabling deployment
 
 ## Shared workflow
-The main ChatGPT portfolio conversation tracks direction and content. VS Code Codex handles local implementation. GitHub holds shared source and decisions.
-Push local changes before asking for repository review; pull remote changes before continuing locally.
-Record approved decisions here rather than relying on chat history being synchronized.
+Record approved decisions here and edit website copy in the repository. Fetch remote changes before starting work. Push reviewable edits to a branch and use a pull request for review.
 
 ## Hosting
-Intended URL: https://aguynamedmarco.github.io
-Astro site URL configured. CI builds/checks only; it does not deploy.
-Later Pages workflow should install at repository root, build there, and upload apps/site/dist.
+Production URL: https://aguynamedmarco.github.io
+
+The Pages workflow builds from `main` and deploys `apps/site/dist`.

@@ -7,6 +7,7 @@ Marco Mendoza's professional portfolio. Astro + TypeScript npm workspaces:
 - packages/tokens: theme, typography, and layout tokens
 
 Read PROJECT_STATUS.md before starting; update it when progress or decisions change.
+Use this GitHub repository as the source of truth for portfolio code, website copy, and project decisions. Fetch the current branch before editing and record decisions here.
 Preserve the existing component/token architecture. Prefer existing components and tokens.
 Keep writing concise and natural. Explain why design decisions were made; preserve useful subsection titles.
 Do not invent projects, quotes, results, metrics, or personal information. Existing sample content is not evidence of Marco's work.
@@ -21,5 +22,5 @@ Separate site implementation from approval of portfolio claims.
 
 Run check and build for code changes; report failures honestly.
 Keep secrets, node_modules, generated output, and caches out of Git.
-Use branches and pull requests. Do not publish or enable deployment unless requested.
-GitHub Pages is the intended host. The build output is apps/site/dist; no repository base path is required.
+Push work to GitHub branches and use pull requests for review. Merge to main only when requested.
+GitHub Pages deploys from main. The build output is apps/site/dist; no repository base path is required.
