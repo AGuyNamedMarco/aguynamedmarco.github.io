@@ -1413,6 +1413,10 @@ main {
     margin-inline: auto;
     transform: translateX(calc(var(--ui-toolbar-width) / 2));
   }
+
+  .site-footer {
+    margin-inline-start: var(--ui-toolbar-width);
+  }
 }
 
 @media (max-width: 900px) {
