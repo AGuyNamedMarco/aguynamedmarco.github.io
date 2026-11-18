@@ -1,6 +1,10 @@
 # Portfolio project status
 
-Updated: 2026-11-17
+Updated: 2026-11-18
+
+## Search case-study figures
+
+- Added responsive space above and below figures and applied shadows directly to the cropped screenshot images, including the chart and map.
 
 ## GitHub workflow — November 17
 
