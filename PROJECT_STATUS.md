@@ -1,6 +1,10 @@
 # Portfolio project status
 
-Updated: 2026-11-17
+Updated: 2026-11-18
+
+## Search case-study figures
+
+- Centered figure captions and source lines beneath each figure.
 
 ## GitHub workflow — November 17
 
