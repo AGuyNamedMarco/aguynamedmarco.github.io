@@ -1,6 +1,16 @@
 # Portfolio project status
 
-Updated: 2026-11-17
+Updated: 2026-11-18
+
+## Desktop footer
+
+- Offset the footer by the fixed sidebar width on desktop so its border and content clear the sidebar.
+
+## Search case-study figures
+
+- Centered figure captions and source lines beneath each figure.
+- Added responsive space above and below figures and applied shadows directly to the cropped screenshot images, including the chart and map.
+- Narrowed the reading column to 40rem and adjusted heading weights and line spacing.
 
 ## GitHub workflow — November 17
 

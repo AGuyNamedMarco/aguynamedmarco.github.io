@@ -1,7 +1,8 @@
 .case-study {
-  --case-figure-bg: var(--surface);
+  --case-figure-bg: var(--bg);
+  --case-figure-spacing: clamp(var(--space-3), 2vw, var(--space-5));
   --case-muted: var(--text-muted);
-  --case-reading-width: 50rem;
+  --case-reading-width: 40rem;
   --case-visual-width: 67.5rem;
   --case-block-gap: var(--space-4);
   max-width: 78rem;
@@ -12,7 +13,7 @@
 .case-opening,
 .case-section,
 .case-closing {
-  width: min(100%, var(--case-visual-width));
+  width: min(80%, var(--case-visual-width));
   margin-inline: auto;
 }
 
@@ -63,9 +64,9 @@
 .case-feedback {
   display: grid;
   gap: var(--space-2);
-  width: 100%;
-  margin: 0;
-  padding: var(--space-4);
+  width: 80%;
+  margin: var(--case-figure-spacing) 0;
+  padding: var(--space-3);
   background: var(--case-figure-bg);
   text-align: center;
 }
@@ -74,6 +75,7 @@
 .case-feedback figcaption { color: var(--case-muted); font-size: 0.875rem; }
 
 .case-lead-figure { margin-block-end: var(--space-4); }
+.case-study .case-figure img { box-shadow: 0 4px 12px rgb(0 0 0 / 24%); }
 .case-section {
   display: grid;
   gap: var(--case-block-gap);
@@ -82,12 +84,12 @@
 
 .case-prose {
   display: grid;
-  gap: var(--space-3);
+  gap: var(--space-2);
   width: min(100%, var(--case-reading-width));
   margin-inline: auto;
 }
 
-.case-prose h3:not(:first-child) { margin-block-start: var(--space-3); }
+.case-prose h3:not(:first-child) { margin-block-start: var(--space-5); }
 .case-prose p { line-height: 1.7; }
 .case-decisions { gap: var(--space-6); }
 .case-decision { display: grid; gap: var(--case-block-gap); }
@@ -142,10 +144,7 @@
   width: min(100%, 60rem);
 }
 
-.case-analysis-crop { position: relative; overflow: hidden; aspect-ratio: 520 / 350; background: white; }
-.case-analysis-crop img { position: absolute; width: calc(760 / 520 * 100%); left: calc(-211 / 520 * 100%); }
-.case-analysis-crop.time img { top: calc(-646 / 350 * 100%); }
-.case-analysis-crop.map img { top: calc(-1250 / 350 * 100%); }
+.case-analysis-pair img { display: block; width: 100%; height: auto; background: white; }
 .case-study .case-disclosure { color: var(--case-muted); font-size: 0.875rem; margin-top: var(--space-3); }
 .case-closing {
   display: flex;

@@ -13,3 +13,11 @@
   --step-8: calc(var(--step-7) * var(--type-ratio));
   --step-9: calc(var(--step-8) * var(--type-ratio));
 }
+
+h1 {
+  font-weight: 700;
+}
+
+h2, h3 {
+  font-weight: 600;
+}
