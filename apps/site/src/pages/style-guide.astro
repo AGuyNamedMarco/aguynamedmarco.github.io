@@ -1,17 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import tokens from "@portfolio/tokens/tokens.json";
 
-const typeScale = [
-  { name: "step--2", size: "0.694rem", usage: "Captions" },
-  { name: "step--1", size: "0.833rem", usage: "Meta text" },
-  { name: "step-0", size: "1rem", usage: "Body text" },
-  { name: "step-1", size: "1.2rem", usage: "Lead copy" },
-  { name: "step-2", size: "1.44rem", usage: "Small headings" },
-  { name: "step-3", size: "1.728rem", usage: "Section headings" },
-  { name: "step-4", size: "2.074rem", usage: "Page headings" },
-  { name: "step-5", size: "2.488rem", usage: "Display 2" },
-  { name: "step-6", size: "2.986rem", usage: "Display 1" }
-];
+const { scale, ratio, steps } = tokens.typography;
 ---
 <BaseLayout
   title="Style Guide | Marco Chen"
@@ -51,12 +42,12 @@ const typeScale = [
   </section>
 
   <section class="section card" aria-labelledby="type-title">
-    <h2 id="type-title">Typography Scale (Minor Third 1.200)</h2>
+    <h2 id="type-title">Typography Scale ({scale} {ratio})</h2>
     <ul class="code-list">
       {
-        typeScale.map((item) => (
+        Object.entries(steps).map(([name, size]) => (
           <li>
-            <code>--{item.name}: {item.size}</code> - {item.usage}
+            <code>--{name}: {size}</code>
           </li>
         ))
       }
