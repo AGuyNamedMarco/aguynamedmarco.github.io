@@ -6,7 +6,7 @@
 
 html {
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.5;
   font-size: 100%;
   font-family: "Inter", "Segoe UI", "Helvetica Neue", sans-serif;
   background: var(--bg);
@@ -135,7 +135,7 @@ h6 a:hover {
 }
 
 main {
-  padding: var(--logo-bottom-offset) 0 calc(var(--space-6) + var(--space-3));
+  /* padding: var(--logo-bottom-offset) 0 calc(var(--space-6) + var(--space-3)); */
 }
 
 .hero-lab-intro {
@@ -1412,6 +1412,10 @@ main {
     );
     margin-inline: auto;
     transform: translateX(calc(var(--ui-toolbar-width) / 2));
+  }
+
+  .site-footer {
+    margin-inline-start: var(--ui-toolbar-width);
   }
 }
 
