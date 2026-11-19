@@ -1,5 +1,5 @@
 :root {
-  --type-ratio: 1.2;
+  --type-ratio: 1.125;
   --step--2: calc(1rem / (var(--type-ratio) * var(--type-ratio)));
   --step--1: calc(1rem / var(--type-ratio));
   --step-0: 1rem;

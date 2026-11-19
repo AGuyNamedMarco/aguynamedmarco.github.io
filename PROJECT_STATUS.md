@@ -2,6 +2,10 @@
 
 Updated: 2026-11-18
 
+## Typography preview
+
+- Try the Major Second scale at a 1.125 ratio to bring adjacent sizes closer together. Keep the 1rem body size and use the shared steps for Search case-study typography.
+
 ## Desktop footer
 
 - Offset the footer by the fixed sidebar width on desktop so its border and content clear the sidebar.
